@@ -1,8 +1,12 @@
-const express = require("express")
+const express = require('express')
+const bodyParser = require('body-parser')
+
 const app = express()
 
+app.use(bodyParser.json())
 
-app.get('/', (req, res) => res.send({status: "ok"}))
+app.use(bodyParser.urlencoded({ extended: false }))
 
+require('./controllers/AuthController')(app)
 
 app.listen(3000)
