@@ -9,18 +9,30 @@ const router = express.Router();
 router.use(authMiddleware);
 
 router.post("/create", async (req, res) => {
-
-    try {
-
-        const categorie = await Categorie.create({ ...req.body, user: req.userId })
-        return res.status(201).send({categorie})
-
-    } catch (error) {
-        console.log("error >>", error)
-        return res.status(400).send({error: "Error at creating new categorie!"})
-    }
+	try {
+		const categorie = await Categorie.create({
+			...req.body,
+			user: req.userId
+		});
+		return res.status(201).send({ categorie });
+	} catch (error) {
+		console.log("error >>", error);
+		return res
+			.status(400)
+			.send({ error: "Error at creating new categorie!" });
+	}
 });
 
+router.get("/list", async (req, res) => {
+    try {
+        const categorie = await Categorie.find()
+        return res.status(200).send({categorie})
+	} catch (error) {
+		console.log("error >>", error);
+		return res
+			.status(400)
+			.send({ error: "No results!" });
+	}
+});
 
-
-module.exports = app => app.use('/categorie', router)
+module.exports = app => app.use("/categorie", router);
