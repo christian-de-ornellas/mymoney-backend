@@ -10,5 +10,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 require("./controllers/AuthController")(app);
 require("./controllers/CategorieController")(app);
 require("./controllers/BillingController")(app);
+require("./controllers/PaymentController")(app);
 
 app.listen(3000);
