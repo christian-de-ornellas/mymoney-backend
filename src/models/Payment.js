@@ -16,12 +16,13 @@ const PaymentSchema = new mongoose.Schema({
 		required: true
 	},
 
-    date: {
-        type: Date, default: Date.now
+	date: {
+		type: Date,
+		default: Date.now
 	},
-	
+
 	value: {
-		type: String,
+		type: Number,
 		required: true
 	},
 
@@ -38,5 +39,5 @@ const PaymentSchema = new mongoose.Schema({
 	}
 });
 
-const Payment = mongoose.model("Payment", PaymentSchema)
-module.exports = Payment
+const Payment = mongoose.model("Payment", PaymentSchema);
+module.exports = Payment;

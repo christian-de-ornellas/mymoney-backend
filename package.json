@@ -5,7 +5,7 @@
 	"author": "Christian Possidonio",
 	"license": "MIT",
 	"scripts": {
-		"start": "src/index.js",
+		"start": "node src/index.js",
 		"dev": "nodemon src/index.js"
 	},
 	"dependencies": {
